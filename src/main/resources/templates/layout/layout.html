@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<div th:object="${postsList}" th:fragment="postsList">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">작성자</th>
+      <th scope="col">작성일</th>
+      <th scope="col">조회수</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="postsForm : ${postsList}">
+      <th scope="row" th:text="${postsForm.id}">id</th>
+      <td th:text="${postsForm.title}">title</td>
+      <td th:text="${postsForm.writer.memberName}">writer</td>
+      <td th:text="${postsForm.createTime}">create_date</td>
+      <td th:text="${postsForm.pageView}">pageViews</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</html>
