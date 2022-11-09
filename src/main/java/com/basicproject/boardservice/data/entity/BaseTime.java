@@ -14,10 +14,20 @@ import org.springframework.data.annotation.LastModifiedDate;
 @Getter
 public abstract class BaseTime {
 
+    /**
+     * <p>
+     *     추가한 시간
+     * </p>
+     */
     @Column(nullable = false, name = "create_time")
     @CreatedDate
     private String createTime;
 
+    /**
+     * <p>
+     * 수정한 시간
+     * </p>
+     */
     @Column(nullable = false, name = "modified_date")
     @LastModifiedDate
     private String modifiedTime;
@@ -26,7 +36,7 @@ public abstract class BaseTime {
     @PrePersist
     public void onPrePersist() {
         this.createTime =
-            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
         this.modifiedTime = createTime;
     }
 
@@ -34,7 +44,7 @@ public abstract class BaseTime {
     @PreUpdate
     public void onUpdate() {
         this.modifiedTime =
-            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+            LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
     }
 
 

@@ -24,8 +24,14 @@ public class PostsServiceImpl implements PostsService {
     }
 
     @Override
-    public Posts findById(Long postId) {
+    public Posts findById(Long postsId) {
 //        postsRepository.findById(postId).orElseThrow(() -> new IllegalException("error"))
-        return postsRepository.findById(postId).get();
+        return postsRepository.findById(postsId).get();
+    }
+
+    /*pageView update*/
+    @Override
+    public int updateView(Long postsId) {
+        return postsRepository.updateView(postsId);
     }
 }

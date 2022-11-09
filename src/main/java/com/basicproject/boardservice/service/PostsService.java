@@ -10,7 +10,9 @@ public interface PostsService {
 
     Page<Posts> findAll(Pageable pageable);
 
-    Posts findById(Long postId);
+    Posts findById(Long postsId);
+
+    int updateView(Long postsId);
 
 
 }

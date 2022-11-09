@@ -24,7 +24,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class Posts extends BaseTime {
 
-
     @Id
     @GeneratedValue
     @Column(name = "post_id")

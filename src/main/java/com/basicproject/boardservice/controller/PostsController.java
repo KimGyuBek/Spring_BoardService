@@ -15,12 +15,10 @@ public class PostsController {
 
     private final PostsService postsService;
 
-    /**
-     *
-     */
     @GetMapping("/view/{postId}")
-    public String postsView(@PathVariable(value = "postId") Long postId, Model model) {
-        model.addAttribute("postsForm", postsService.findById(postId));
+    public String postsView(@PathVariable(value = "postId") Long postsId, Model model) {
+        model.addAttribute("postsForm", postsService.findById(postsId));
+        postsService.updateView(postsId);
 
         return "posts/posts_view";
     }

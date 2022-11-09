@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/common.css">
-  <title>게시판</title>
-</head>
-
 <head th:replace="/layout/commonHead :: commonHead(~{::title})">
-  <title>게시판</title>
+  <title th:text="'게시글 - ' +  ${postsForm.title}">title</title>
 </head>
 
 <body>
@@ -28,48 +19,52 @@
 </div>
 <!-- board list title end -->
 
-<!-- board list start -->
+<div class="empty_blank_3"></div>
 
-<div id="posts_list">
+<!--posts view start-->
+<!--<div id="posts_list" th:object="${postsForm}">-->
+<div id="posts_list" >
   <div class="col-md-12">
     <form class="card">
       <div class="card-header d-flex justify-content-between">
-        <label for="id">번호 : {{posts.id}}</label>
-        <input type="hidden" id="id" value="{{posts.id}}"> {{! label 연결 }}
-        <label for="createdDate">{{posts.createdDate}}</label>
+        <label th:text="${postsForm.id}">postsId</label>
+        <input type="hidden" id="id" value="{{posts.id}}">
+        <!--        <label th:value="${postsForm.createTime}">created_date</label>-->
+        <label th:text="${postsForm.createTime}">created_date</label>
+
       </div>
       <div class="card-header d-flex justify-content-between">
-        <label for="writer">작성자 : {{posts.writer}}</label>
-        <label for="view"><i class=" bi bi-eye-fill"> {{posts.view}}</i></label>
+        <label th:text="${postsForm.writer.memberName}">writer</label>
+        <label><i class=" bi bi-eye-fill" th:text="${postsForm.pageView}">pageViews</i></label>
       </div>
       <div class="card-body">
         <label for="title">제목</label>
-        <input type="text" class="form-control" id="title" value="{{posts.title}}" readonly>
+        <input type="text" class="form-control" id="title" value="title" readonly
+               th:value="${postsForm.title}">
         <br/>
         <label for="content">내용</label>
-        <textarea rows="5" class="form-control" id="content" readonly>{{posts.content}}</textarea>
+        <textarea rows="5" class="form-control" id="content" th:value="contents"
+                  readonly>contents</textarea>
       </div>
     </form>
 
+    <div class="empty_blank_3"></div>
+    <!---->
+    <!--    <button class="etc_btn" type="button" onclick=""-->
+    <!--            th:onclick="|location.href='@{/board/edit(id=${boardForm.boardId})}'|">수정</button>-->
+    <!---->
 
-    {{! Buttons }}
-    {{#user}}
-    <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
-    {{#writer}}
+    <!--    buttons start-->
+    <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"
+       th:onclick="|location.href='@{/}'|"> 목록</a>
     <a href="/posts/update/{{posts.id}}" role="button" class="btn btn-primary bi bi-pencil-square">
       수정</a>
     <button type="button" onclick="" id="btn-delete" class="btn btn-danger bi bi-trash"> 삭제</button>
-    {{/writer}}
-    {{/user}}
-    {{^user}}
-    <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
-    {{/user}}
-    {{! Comments }}
-    {{>comment/list}}
-    {{>comment/form}}
+    <!--    buttons end-->
+
   </div>
 </div>
-<!-- board list end -->
+<!--posts view end-->
 
 <div class="empty_blank_4"></div>
 

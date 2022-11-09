@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-
 <div th:object="${postsList}" th:fragment="postsList">
   <table class="table">
     <thead class="thead-dark">
@@ -15,10 +14,22 @@
     </thead>
     <tbody>
     <tr th:each="postsForm : ${postsList}">
-      <th scope="row" th:text="${postsForm.id}">id</th>
-      <td th:text="${postsForm.title}">title</td>
-      <td th:text="${postsForm.writer.memberName}">writer</td>
-      <td th:text="${postsForm.createTime}">create_date</td>
+      <th scope="row">
+        <a th:href="@{/posts/view/{postsId}(postsId=${postsForm.id})}">
+          <label th:text="${postsForm.id}">id</label>
+        </a>
+      </th>
+      <td>
+        <a th:href="@{/posts/view/{postsId}(postsId=${postsForm.id})}">
+          <label th:text="${postsForm.title}">title</label>
+        </a>
+      </td>
+      <td>
+        <a th:href="@{/posts/view/{postsId}(postsId=${postsForm.id})}">
+          <label th:text="${postsForm.writer.memberName}">writer</label>
+        </a>
+      </td>
+      <td th:text="${postsForm.createTime}">createTime</td>
       <td th:text="${postsForm.pageView}">pageViews</td>
     </tr>
     </tbody>
