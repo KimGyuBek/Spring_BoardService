@@ -43,7 +43,7 @@ public class Posts extends BaseTime {
     private int pageView;
 
     @OneToMany(mappedBy = "posts")
-    private List<Comment> commentsList = new ArrayList<>();
+    private List<Comments> commentsList = new ArrayList<>();
 
 
 }

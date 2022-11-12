@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/layout/commonHead :: commonHead(~{::title})">
+  <title>로그인</title>
+</head>
+
+<body>
+<!-- header start -->
+<header th:replace="/layout/header :: header">
+</header>
+
+<!-- header end -->
+
+<div class="empty_blank_3"></div>
+
+<!--login title start-->
+<div>
+  <h1>
+    로그인
+  </h1>
+</div>
+<!--login title end-->
+
+<!--loginForm start-->
+<div th:replace="/layout/memberLayout :: loginForm"></div>
+<!--loginForm end-->
+
+
+
+
+<div class="empty_blank_4"></div>
+
+<!-- footer start -->
+<footer th:replace="/layout/footer :: footer">
+</footer>
+<!-- footer end -->
+
+</body>
+
+</html>

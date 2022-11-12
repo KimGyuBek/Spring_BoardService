@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!--loginForm start-->
+<div id="posts_list" th:fragment="loginForm">
+  <div class="container col-md-6">
+    <!--    <form action="" method="post" th:object="${loginDto}">-->
+    <!--      <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
+    <!--      <div class="form-group">-->
+    <!--        <label>아이디</label>-->
+    <!--        <input type="text" class="form-control" name="username" placeholder="아이디를 입력해주세요"-->
+    <!--               th:field="*{memberName}">-->
+    <!--      </div>-->
+
+    <!--      <div class="form-group">-->
+    <!--        <label>비밀번호</label>-->
+    <!--        <input type="password" class="form-control" name="password" placeholder="비밀번호를 입력해주세요"-->
+    <!--               th:field="*{password}">-->
+    <!--      </div>-->
+
+    <!--      &lt;!&ndash;      <span>&ndash;&gt;-->
+    <!--      &lt;!&ndash;                {{#error}}&ndash;&gt;-->
+    <!--      &lt;!&ndash;                    <p id="valid" class="alert alert-danger">{{exception}}</p>&ndash;&gt;-->
+    <!--      &lt;!&ndash;                {{/error}}&ndash;&gt;-->
+    <!--      &lt;!&ndash;      </span>&ndash;&gt;-->
+
+    <!--      <button class="form-control btn btn-primary bi bi-lock-fill"> 로그인</button>-->
+    <!--      <div class="empty_blank_2"></div>-->
+    <!--      <a href="/join" role="button" class="form-control btn btn-primary bi bi-lock-fill"-->
+    <!--         th:onclick="|location.href='@{/join}'|">회원가입</a>-->
+    <!--    </form>-->
+
+    <form method="post" th:action="@{/login}">
+      <div class="form-group">
+        <label>아이디</label>
+        <input type="text" class="form-control" name="username" placeholder="아이디를 입력해주세요">
+      </div>
+
+      <div class="form-group">
+        <label>비밀번호</label>
+        <input type="password" class="form-control" name="password" placeholder="비밀번호를 입력해주세요">
+      </div>
+
+      <!--      <span>-->
+      <!--                {{#error}}-->
+      <!--                    <p id="valid" class="alert alert-danger">{{exception}}</p>-->
+      <!--                {{/error}}-->
+      <!--      </span>-->
+
+      <button class="form-control btn btn-primary bi bi-lock-fill"> 로그인</button>
+      <div class="empty_blank_2"></div>
+      <a href="/join" role="button" class="form-control btn btn-primary bi bi-lock-fill"
+         th:onclick="|location.href='@{/join}'|">회원가입</a>
+    </form>
+  </div>
+</div>
+<!--loginForm end-->
+
+
+<!--joinForm start-->
+<div id="posts_list" th:fragment="joinForm">
+  <div class="container col-md-4">
+    <!--    <form action="" method="post" th:object="${joinDto}" th:action="@{/loginProc}">-->
+    <!--      <input type="hidden" name="_csrf" value=""/>-->
+    <!--      <div class="form-group">-->
+    <!--        <label>아이디</label>-->
+    <!--        <input type="text" name="memberName" value=""-->
+    <!--               class="form-control" placeholder="아이디를 입력해주세요" th:field="*{memberName}"/>-->
+
+    <!--        <span id="valid"></span>-->
+
+    <!--      </div>-->
+
+    <!--      <div class="form-group">-->
+    <!--        <label>비밀번호</label>-->
+    <!--        <input type="password" name="password" value=""-->
+    <!--               class="form-control" placeholder="비밀번호를 입력해주세요" th:field="*{password}"/>-->
+    <!--        <span id="valid"></span>-->
+    <!--      </div>-->
+
+    <!--      <div class="form-group">-->
+    <!--        <label>닉네임</label>-->
+    <!--        <input type="text" name="nickname" value=""-->
+    <!--               class="form-control" placeholder="닉네임을 입력해주세요" th:field="*{nickName}"/>-->
+    <!--        <span id="valid"></span>-->
+    <!--      </div>-->
+
+    <!--      <div class="form-group">-->
+    <!--        <label>이메일</label>-->
+    <!--        <input type="email" name="email" value=""-->
+    <!--               class="form-control" placeholder="이메일을 입력해주세요" th:field="*{email}"/>-->
+    <!--        <span id="valid"></span>-->
+    <!--      </div>-->
+
+    <!--      <button class="btn btn-primary bi bi-person"> 가입</button>-->
+    <!--      <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>-->
+    <!--    </form>-->
+
+
+    <form action="" method="post" th:action="@{/join}">
+<!--      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
+      <div class="form-group">
+        <label>아이디</label>
+        <input type="text" name="memberName" value=""
+               class="form-control" placeholder="아이디를 입력해주세요"/>
+
+        <!--        <span id="valid"></span>-->
+
+      </div>
+
+      <div class="form-group">
+        <label>비밀번호</label>
+        <input type="password" name="password" value=""
+               class="form-control" placeholder="비밀번호를 입력해주세요"/>
+        <!--        <span id="valid"></span>-->
+      </div>
+
+      <div class="form-group">
+        <label>닉네임</label>
+        <input type="text" name="nickName" value=""
+               class="form-control" placeholder="닉네임을 입력해주세요"/>
+        <!--        <span id="valid"></span>-->
+      </div>
+
+      <div class="form-group">
+        <label>이메일</label>
+        <input type="email" name="email" value=""
+               class="form-control" placeholder="이메일을 입력해주세요"/>
+        <span id="valid"></span>
+      </div>
+
+      <button class="btn btn-primary bi bi-person"> 가입</button>
+      <a href="/" role="button" class="btn btn-info bi bi-arrow-return-left"> 목록</a>
+    </form>
+  </div>
+</div>
+<!--joinForm end-->
+
+</html>

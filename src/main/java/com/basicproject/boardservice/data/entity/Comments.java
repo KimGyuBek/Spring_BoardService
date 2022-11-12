@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.catalina.User;
 
 @Entity
 @Table(name = "comments")
@@ -20,11 +19,11 @@ import org.apache.catalina.User;
 @AllArgsConstructor
 @Builder
 @Getter
-public class Comment extends BaseTime{
+public class Comments extends BaseTime{
 
     @Id
     @GeneratedValue
-    @Column(name = "commentsid")
+    @Column(name = "comments_id")
     private Long id;
 
     @Column(columnDefinition = "text", nullable = false)

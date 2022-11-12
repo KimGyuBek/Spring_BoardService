@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "member")
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Getter
+@Setter
 public class Member extends BaseTime {
 
     @Id
@@ -35,11 +37,14 @@ public class Member extends BaseTime {
     @Column(nullable = false, unique = true)
     private String nickName;
 
+//    @Column(nullable = false, unique = true)
+    private String email;
+
 
     @OneToMany(mappedBy = "writer")
     private List<Posts> postList = new ArrayList<>();
 
     @OneToMany(mappedBy = "writer")
-    private List<Comment> commentList = new ArrayList<>();
+    private List<Comments> commentsList = new ArrayList<>();
 
 }
